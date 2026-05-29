@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ thống KTTX Pro - V8.5</title>
-    <style>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;vi&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Hệ thống KTTX Pro - V8.5&lt;/title&gt;
+    &lt;style&gt;
         :root { --primary: #0056b3; --admin: #dc3545; --success: #28a745; --bg: #f4f7f9; }
         * { box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); margin: 0; }
@@ -15,7 +15,7 @@
         .config-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; align-items: end; }
         .form-group { margin-bottom: 10px; }
         .form-group label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 14px; }
-        input[type="text"], input[type="number"], input[type="password"], input[type="file"], select { width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; outline:none; }
+        input[type=&quot;text&quot;], input[type=&quot;number&quot;], input[type=&quot;password&quot;], input[type=&quot;file&quot;], select { width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; outline:none; }
         input:focus, select:focus { border-color: var(--primary); }
         .exam-header-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary); margin-bottom: 15px; padding-bottom: 5px; }
         .timer-box { font-size: 28px; font-weight: bold; color: var(--admin); background: #fff; padding: 5px 15px; border: 2px solid var(--admin); border-radius: 8px; }
@@ -27,7 +27,7 @@
         .q-row { display: flex; align-items: center; padding: 6px 0; border-bottom: 1px solid #eee; font-size: 13px; }
         .q-num { min-width: 65px; font-weight: bold; color: var(--primary); }
         .q-opts { display: flex; gap: 8px; flex: 1; align-items: center; }
-        .q-opts input[type="radio"] { transform: scale(1.4); cursor: pointer; }
+        .q-opts input[type=&quot;radio&quot;] { transform: scale(1.4); cursor: pointer; }
         .input-ans-large { width: 120px !important; height: 35px; font-size: 16px; font-weight: bold; text-align: center; border: 2px solid var(--primary) !important; border-radius: 4px; }
         .btn-group { display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
         button { padding: 10px 18px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
@@ -71,176 +71,176 @@
             .view-left { min-height: 400px; }
             .dashboard-header { flex-direction: column; gap: 15px; align-items: flex-start;}
         }
-    </style>
-</head>
-<body>
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-    <div id="page1" class="page active">
-        <div class="container" style="max-width: 900px;">
-            <h1 style="text-align:center; color:var(--primary); margin-top:0; text-transform:uppercase;">HỆ THỐNG KIỂM TRA THƯỜNG XUYÊN</h1>
+    &lt;div id=&quot;page1&quot; class=&quot;page active&quot;&gt;
+        &lt;div class=&quot;container&quot; style=&quot;max-width: 900px;&quot;&gt;
+            &lt;h1 style=&quot;text-align:center; color:var(--primary); margin-top:0; text-transform:uppercase;&quot;&gt;HỆ THỐNG KIỂM TRA THƯỜNG XUY&Ecirc;N&lt;/h1&gt;
             
-            <div id="unlockZone" class="admin-box" style="background: #f1f3f5;">
-                <label style="font-weight:bold; display: block; margin-bottom: 5px;">Quyền Giáo viên:</label>
-                <div style="display: flex; gap: 10px;">
-                    <input type="password" id="sysCode" placeholder="Nhập mã bảo mật để cấu hình...">
-                    <button class="btn-admin" onclick="unlockAdmin()" style="white-space: nowrap;">MỞ KHÓA</button>
-                </div>
-            </div>
+            &lt;div id=&quot;unlockZone&quot; class=&quot;admin-box&quot; style=&quot;background: #f1f3f5;&quot;&gt;
+                &lt;label style=&quot;font-weight:bold; display: block; margin-bottom: 5px;&quot;&gt;Quyền Gi&aacute;o vi&ecirc;n:&lt;/label&gt;
+                &lt;div style=&quot;display: flex; gap: 10px;&quot;&gt;
+                    &lt;input type=&quot;password&quot; id=&quot;sysCode&quot; placeholder=&quot;Nhập m&atilde; bảo mật để cấu h&igrave;nh...&quot;&gt;
+                    &lt;button class=&quot;btn-admin&quot; onclick=&quot;unlockAdmin()&quot; style=&quot;white-space: nowrap;&quot;&gt;MỞ KH&Oacute;A&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
 
-            <div id="configPanel" class="admin-box hidden" style="background: #e7f3ff; border: 1px solid #b3d7ff;">
-                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #b3d7ff; padding-bottom: 10px; margin-bottom: 15px;">
-                    <h3 style="margin:0; color: var(--primary);">CẤU HÌNH HỆ THỐNG</h3>
-                    <button class="btn-admin" onclick="clearConfigAndData()" style="padding: 6px 12px; font-size: 12px;">XÓA MÃ ĐỀ (Làm mới)</button>
-                </div>
-                <div class="config-grid">
-                    <div class="form-group"><label>Mã đề thi (VD: 801, 802):</label><input type="text" id="cfgMaDe"></div>
-                    <div class="form-group"><label>Số lượt làm bài:</label><input type="number" id="cfgMaxLuot" value="1"></div>
-                    <div class="form-group"><label>Thời gian (phút):</label><input type="number" id="cfgTime" value="30"></div>
-                    <div class="form-group" style="grid-column: 1 / -1;"><label style="color: #0056b3;">Link PDF/iFrame (mã đề 1):</label><input type="text" id="cfgLink1" placeholder="https://drive.google.com/file/d/1xQ6GxuPUBg-jxFpSHHsnAK-QRF8tXF15/preview"></div>
-                    <div class="form-group" style="grid-column: 1 / -1;"><label style="color: #6f42c1;">Link PDF/iFrame (mã đề 2):</label><input type="text" id="cfgLink2" placeholder="https://drive.google.com/file/d/1uwA05s7NRCc2mY2_wa80yjn3A8fSFI2f/preview"></div>
-                    <div class="form-group" style="grid-column: 1 / -1;"><label>Tải ảnh đề lên (áp dụng chung):</label>
-                        <input type="file" id="cfgFiles" multiple accept="image/*" style="background: white;" onchange="handleFileSelect(event)">
-                        <div id="fileUploadStatus" style="font-size: 12px; color: var(--success); font-weight: bold; margin-top: 5px;"></div>
-                    </div>
-                </div>
-                <div class="btn-group" style="margin-top:15px;">
-                    <button class="btn-success" id="btnSaveConfig" onclick="saveSystemConfig()" style="flex: 1;">LƯU CẤU HÌNH MỚI</button>
-                    <button class="btn-primary" onclick="navTo(3)" style="background: #6610f2;">BẢNG ĐIỂM</button>
-                    <button class="btn-gray" onclick="exitAdmin()">THOÁT CẤU HÌNH ADMIN</button>
-                </div>
-            </div>
+            &lt;div id=&quot;configPanel&quot; class=&quot;admin-box hidden&quot; style=&quot;background: #e7f3ff; border: 1px solid #b3d7ff;&quot;&gt;
+                &lt;div style=&quot;display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #b3d7ff; padding-bottom: 10px; margin-bottom: 15px;&quot;&gt;
+                    &lt;h3 style=&quot;margin:0; color: var(--primary);&quot;&gt;CẤU H&Igrave;NH HỆ THỐNG&lt;/h3&gt;
+                    &lt;button class=&quot;btn-admin&quot; onclick=&quot;clearConfigAndData()&quot; style=&quot;padding: 6px 12px; font-size: 12px;&quot;&gt;X&Oacute;A M&Atilde; ĐỀ (L&agrave;m mới)&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;config-grid&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;&lt;label&gt;M&atilde; đề thi (VD: 801, 802):&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;cfgMaDe&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;&lt;label&gt;Số lượt l&agrave;m b&agrave;i:&lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;cfgMaxLuot&quot; value=&quot;1&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;&lt;label&gt;Thời gian (ph&uacute;t):&lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;cfgTime&quot; value=&quot;30&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot; style=&quot;grid-column: 1 / -1;&quot;&gt;&lt;label style=&quot;color: #0056b3;&quot;&gt;Link PDF/iFrame (m&atilde; đề 1):&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;cfgLink1&quot; placeholder=&quot;https://drive.google.com/file/d/1xQ6GxuPUBg-jxFpSHHsnAK-QRF8tXF15/preview&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot; style=&quot;grid-column: 1 / -1;&quot;&gt;&lt;label style=&quot;color: #6f42c1;&quot;&gt;Link PDF/iFrame (m&atilde; đề 2):&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;cfgLink2&quot; placeholder=&quot;https://drive.google.com/file/d/1uwA05s7NRCc2mY2_wa80yjn3A8fSFI2f/preview&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot; style=&quot;grid-column: 1 / -1;&quot;&gt;&lt;label&gt;Tải ảnh đề l&ecirc;n (&aacute;p dụng chung):&lt;/label&gt;
+                        &lt;input type=&quot;file&quot; id=&quot;cfgFiles&quot; multiple accept=&quot;image/*&quot; style=&quot;background: white;&quot; onchange=&quot;handleFileSelect(event)&quot;&gt;
+                        &lt;div id=&quot;fileUploadStatus&quot; style=&quot;font-size: 12px; color: var(--success); font-weight: bold; margin-top: 5px;&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;btn-group&quot; style=&quot;margin-top:15px;&quot;&gt;
+                    &lt;button class=&quot;btn-success&quot; id=&quot;btnSaveConfig&quot; onclick=&quot;saveSystemConfig()&quot; style=&quot;flex: 1;&quot;&gt;LƯU CẤU H&Igrave;NH MỚI&lt;/button&gt;
+                    &lt;button class=&quot;btn-primary&quot; onclick=&quot;navTo(3)&quot; style=&quot;background: #6610f2;&quot;&gt;BẢNG ĐIỂM&lt;/button&gt;
+                    &lt;button class=&quot;btn-gray&quot; onclick=&quot;exitAdmin()&quot;&gt;THO&Aacute;T CẤU H&Igrave;NH ADMIN&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
 
-            <div id="studentZone" class="container" style="border: 1px solid #dee2e6; margin-top: 20px;">
-                <h3 style="margin-top:0;">Đăng ký thông tin học sinh</h3>
-                <div class="config-grid">
-                    <div class="form-group"><label>Họ và tên:</label><input type="text" id="stuName"></div>
-                    <div class="form-group"><label>Lớp:</label><input type="text" id="stuClass"></div>
-                    <div class="form-group"><label>Số báo danh:</label><input type="text" id="stuSBD"></div>
-                    <div class="form-group"><label>Nhập mã đề:</label><input type="text" id="stuMaDe" style="background: #eef6ff; border-color: #8db5e2;"></div>
-                </div>
-                <button class="btn-primary" style="width:100%; margin-top:20px; height:45px; text-transform:uppercase; font-size:16px;" onclick="startExam()">BẮT ĐẦU LÀM BÀI</button>
-            </div>
-        </div>
-    </div>
+            &lt;div id=&quot;studentZone&quot; class=&quot;container&quot; style=&quot;border: 1px solid #dee2e6; margin-top: 20px;&quot;&gt;
+                &lt;h3 style=&quot;margin-top:0;&quot;&gt;Đăng k&yacute; th&ocirc;ng tin học sinh&lt;/h3&gt;
+                &lt;div class=&quot;config-grid&quot;&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;&lt;label&gt;Họ v&agrave; t&ecirc;n:&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;stuName&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;&lt;label&gt;Lớp:&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;stuClass&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;&lt;label&gt;Số b&aacute;o danh:&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;stuSBD&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;form-group&quot;&gt;&lt;label&gt;Nhập m&atilde; đề:&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;stuMaDe&quot; style=&quot;background: #eef6ff; border-color: #8db5e2;&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button class=&quot;btn-primary&quot; style=&quot;width:100%; margin-top:20px; height:45px; text-transform:uppercase; font-size:16px;&quot; onclick=&quot;startExam()&quot;&gt;BẮT ĐẦU L&Agrave;M B&Agrave;I&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
 
-    <div id="page2" class="page">
-        <div class="container">
-            <div class="exam-header-row">
-                <h2 style="margin:0; color:var(--primary); text-transform:uppercase;">Nội dung bài thi</h2>
-                <div class="timer-box" id="timer">00:00</div>
-            </div>
-            <div class="student-info-bar">
-                <span>HS: <span id="hName" style="color:#0056b3;">---</span></span>
-                <span>Lớp: <span id="hClass">---</span></span>
-                <span>SBD: <span id="hSbd">---</span></span>
-                <span>Mã đề: <span id="hMaDe">---</span></span>
-                <span id="scoreDisplay" style="color:var(--admin); font-weight:bold;">Điểm: --</span>
-                <span style="color:var(--admin)">Lượt: <span id="hLuot">1/1</span></span>
-            </div>
-            <div class="exam-content">
-                <div class="view-left" id="viewer"></div>
-                <div class="sheet-right">
-                    <h4 style="text-align:center; margin:0 0 10px 0; background: #f1f3f5; padding: 5px; border-radius: 4px;">PHIẾU TRẢ LỜI</h4>
-                    <div id="quizArea"></div>
-                    <button class="btn-success" id="btnSubmit" style="width:100%; margin-top:15px; height:45px; text-transform:uppercase; font-size:16px;" onclick="submitExam()">NỘP BÀI LÀM</button>
+    &lt;div id=&quot;page2&quot; class=&quot;page&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;exam-header-row&quot;&gt;
+                &lt;h2 style=&quot;margin:0; color:var(--primary); text-transform:uppercase;&quot;&gt;Nội dung b&agrave;i thi&lt;/h2&gt;
+                &lt;div class=&quot;timer-box&quot; id=&quot;timer&quot;&gt;00:00&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;student-info-bar&quot;&gt;
+                &lt;span&gt;HS: &lt;span id=&quot;hName&quot; style=&quot;color:#0056b3;&quot;&gt;---&lt;/span&gt;&lt;/span&gt;
+                &lt;span&gt;Lớp: &lt;span id=&quot;hClass&quot;&gt;---&lt;/span&gt;&lt;/span&gt;
+                &lt;span&gt;SBD: &lt;span id=&quot;hSbd&quot;&gt;---&lt;/span&gt;&lt;/span&gt;
+                &lt;span&gt;M&atilde; đề: &lt;span id=&quot;hMaDe&quot;&gt;---&lt;/span&gt;&lt;/span&gt;
+                &lt;span id=&quot;scoreDisplay&quot; style=&quot;color:var(--admin); font-weight:bold;&quot;&gt;Điểm: --&lt;/span&gt;
+                &lt;span style=&quot;color:var(--admin)&quot;&gt;Lượt: &lt;span id=&quot;hLuot&quot;&gt;1/1&lt;/span&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;exam-content&quot;&gt;
+                &lt;div class=&quot;view-left&quot; id=&quot;viewer&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;sheet-right&quot;&gt;
+                    &lt;h4 style=&quot;text-align:center; margin:0 0 10px 0; background: #f1f3f5; padding: 5px; border-radius: 4px;&quot;&gt;PHIẾU TRẢ LỜI&lt;/h4&gt;
+                    &lt;div id=&quot;quizArea&quot;&gt;&lt;/div&gt;
+                    &lt;button class=&quot;btn-success&quot; id=&quot;btnSubmit&quot; style=&quot;width:100%; margin-top:15px; height:45px; text-transform:uppercase; font-size:16px;&quot; onclick=&quot;submitExam()&quot;&gt;NỘP B&Agrave;I L&Agrave;M&lt;/button&gt;
                     
-                    <div id="adminTools" class="hidden" style="margin-top:15px; border-top:1px solid #ddd; padding-top:15px;">
-                        <input type="password" id="adminKeyInput" placeholder="Mã bảo mật để xem đáp án..." style="margin-bottom: 5px;">
-                        <button class="btn-admin" style="width:100%; margin-bottom: 10px;" onclick="adminViewAnswers()">XEM ĐÁP ÁN</button>
-                        <button class="btn-primary" id="btnNextPage" onclick="adminNavToNextPage()" style="width:100%; text-transform:uppercase;">SANG TRANG KẾ TIẾP</button>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-group">
-                <button class="btn-gray" onclick="navTo(1)">Quay lại</button>
-            </div>
-        </div>
-    </div>
+                    &lt;div id=&quot;adminTools&quot; class=&quot;hidden&quot; style=&quot;margin-top:15px; border-top:1px solid #ddd; padding-top:15px;&quot;&gt;
+                        &lt;input type=&quot;password&quot; id=&quot;adminKeyInput&quot; placeholder=&quot;M&atilde; bảo mật để xem đ&aacute;p &aacute;n...&quot; style=&quot;margin-bottom: 5px;&quot;&gt;
+                        &lt;button class=&quot;btn-admin&quot; style=&quot;width:100%; margin-bottom: 10px;&quot; onclick=&quot;adminViewAnswers()&quot;&gt;XEM Đ&Aacute;P &Aacute;N&lt;/button&gt;
+                        &lt;button class=&quot;btn-primary&quot; id=&quot;btnNextPage&quot; onclick=&quot;adminNavToNextPage()&quot; style=&quot;width:100%; text-transform:uppercase;&quot;&gt;SANG TRANG KẾ TIẾP&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;btn-group&quot;&gt;
+                &lt;button class=&quot;btn-gray&quot; onclick=&quot;navTo(1)&quot;&gt;Quay lại&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
 
-    <div id="page3" class="page">
-        <div class="container">
-            <div class="dashboard-header">
-                <h2>BẢNG THỐNG KÊ ĐIỂM BÀI THI</h2>
-                <div class="dashboard-actions">
-                    <button class="btn-success" onclick="exportExcel()">XUẤT EXCEL</button>
-                    <button class="btn-admin" onclick="clearAllLogs()">XÓA HẾT</button>
-                    <button class="btn-primary" onclick="navTo(2)">QUAY LẠI TRANG BÀI LÀM</button>
-                    <button class="btn-gray" onclick="navTo(1)">QUAY LẠI</button>
-                </div>
-            </div>
+    &lt;div id=&quot;page3&quot; class=&quot;page&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;dashboard-header&quot;&gt;
+                &lt;h2&gt;BẢNG THỐNG K&Ecirc; ĐIỂM B&Agrave;I THI&lt;/h2&gt;
+                &lt;div class=&quot;dashboard-actions&quot;&gt;
+                    &lt;button class=&quot;btn-success&quot; onclick=&quot;exportExcel()&quot;&gt;XUẤT EXCEL&lt;/button&gt;
+                    &lt;button class=&quot;btn-admin&quot; onclick=&quot;clearAllLogs()&quot;&gt;X&Oacute;A HẾT&lt;/button&gt;
+                    &lt;button class=&quot;btn-primary&quot; onclick=&quot;navTo(2)&quot;&gt;QUAY LẠI TRANG B&Agrave;I L&Agrave;M&lt;/button&gt;
+                    &lt;button class=&quot;btn-gray&quot; onclick=&quot;navTo(1)&quot;&gt;QUAY LẠI&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
             
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <div class="stat-label">Tổng số bài</div>
-                    <div class="stat-value" id="statTotal">0</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-label">Điểm trung bình</div>
-                    <div class="stat-value" id="statAvg">0.0</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-label">Số bài đạt (≥5)</div>
-                    <div class="stat-value success" id="statPass">0</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-label">Tỉ lệ đạt</div>
-                    <div class="stat-value success" id="statPercent">0%</div>
-                </div>
-            </div>
+            &lt;div class=&quot;stats-grid&quot;&gt;
+                &lt;div class=&quot;stat-box&quot;&gt;
+                    &lt;div class=&quot;stat-label&quot;&gt;Tổng số b&agrave;i&lt;/div&gt;
+                    &lt;div class=&quot;stat-value&quot; id=&quot;statTotal&quot;&gt;0&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;stat-box&quot;&gt;
+                    &lt;div class=&quot;stat-label&quot;&gt;Điểm trung b&igrave;nh&lt;/div&gt;
+                    &lt;div class=&quot;stat-value&quot; id=&quot;statAvg&quot;&gt;0.0&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;stat-box&quot;&gt;
+                    &lt;div class=&quot;stat-label&quot;&gt;Số b&agrave;i đạt (&ge;5)&lt;/div&gt;
+                    &lt;div class=&quot;stat-value success&quot; id=&quot;statPass&quot;&gt;0&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;stat-box&quot;&gt;
+                    &lt;div class=&quot;stat-label&quot;&gt;Tỉ lệ đạt&lt;/div&gt;
+                    &lt;div class=&quot;stat-value success&quot; id=&quot;statPercent&quot;&gt;0%&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
 
-            <div class="filter-ribbon">
-                <div class="filter-group">
-                    <label>Tìm kiếm theo tên / SBD</label>
-                    <input type="text" id="filterSearch" placeholder="Nhập tên hoặc số báo danh..." oninput="renderTable()">
-                </div>
-                <div class="filter-group small">
-                    <label>Lọc theo lớp</label>
-                    <select id="filterClass" onchange="renderTable()">
-                        <option value="">-- Tất cả các lớp --</option>
-                    </select>
-                </div>
-                <div class="filter-group small">
-                    <label>Lọc theo mã đề</label>
-                    <select id="filterMade" onchange="renderTable()">
-                        <option value="">-- Tất cả mã đề --</option>
-                    </select>
-                </div>
-            </div>
+            &lt;div class=&quot;filter-ribbon&quot;&gt;
+                &lt;div class=&quot;filter-group&quot;&gt;
+                    &lt;label&gt;T&igrave;m kiếm theo t&ecirc;n / SBD&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; id=&quot;filterSearch&quot; placeholder=&quot;Nhập t&ecirc;n hoặc số b&aacute;o danh...&quot; oninput=&quot;renderTable()&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;filter-group small&quot;&gt;
+                    &lt;label&gt;Lọc theo lớp&lt;/label&gt;
+                    &lt;select id=&quot;filterClass&quot; onchange=&quot;renderTable()&quot;&gt;
+                        &lt;option value=&quot;&quot;&gt;-- Tất cả c&aacute;c lớp --&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;filter-group small&quot;&gt;
+                    &lt;label&gt;Lọc theo m&atilde; đề&lt;/label&gt;
+                    &lt;select id=&quot;filterMade&quot; onchange=&quot;renderTable()&quot;&gt;
+                        &lt;option value=&quot;&quot;&gt;-- Tất cả m&atilde; đề --&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
 
-            <div style="overflow-x:auto; border-radius: 8px; border: 1px solid #e9ecef;">
-                <table id="resultTable">
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th onclick="sortTable('name')" style="cursor:pointer" title="Sắp xếp theo họ tên">HỌ VÀ TÊN <span id="sort-name">↕</span></th>
-                            <th onclick="sortTable('class')" style="cursor:pointer" title="Sắp xếp theo lớp">LỚP <span id="sort-class">↕</span></th>
-                            <th onclick="sortTable('sbd')" style="cursor:pointer" title="Sắp xếp theo SBD">SBD <span id="sort-sbd">↕</span></th>
-                            <th onclick="sortTable('made')" style="cursor:pointer" title="Sắp xếp theo mã đề">MÃ ĐỀ <span id="sort-made">↕</span></th>
-                            <th onclick="sortTable('luot')" style="cursor:pointer" title="Sắp xếp theo lượt">LƯỢT <span id="sort-luot">↕</span></th>
-                            <th onclick="sortTable('score')" style="cursor:pointer" title="Sắp xếp theo điểm">ĐIỂM <span id="sort-score">↕</span></th>
-                            <th onclick="sortTable('time')" style="cursor:pointer" title="Sắp xếp theo thời gian">THỜI GIAN <span id="sort-time">↕</span></th>
-                            <th>XÓA</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-            <div style="margin-top:20px; text-align:center; color:#6c757d; font-size:12px;" id="emptyTableMsg" class="hidden">
-                Chưa có dữ liệu thống kê.
-            </div>
-        </div>
-    </div>
+            &lt;div style=&quot;overflow-x:auto; border-radius: 8px; border: 1px solid #e9ecef;&quot;&gt;
+                &lt;table id=&quot;resultTable&quot;&gt;
+                    &lt;thead&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;STT&lt;/th&gt;
+                            &lt;th onclick=&quot;sortTable('name')&quot; style=&quot;cursor:pointer&quot; title=&quot;Sắp xếp theo họ t&ecirc;n&quot;&gt;HỌ V&Agrave; T&Ecirc;N &lt;span id=&quot;sort-name&quot;&gt;↕&lt;/span&gt;&lt;/th&gt;
+                            &lt;th onclick=&quot;sortTable('class')&quot; style=&quot;cursor:pointer&quot; title=&quot;Sắp xếp theo lớp&quot;&gt;LỚP &lt;span id=&quot;sort-class&quot;&gt;↕&lt;/span&gt;&lt;/th&gt;
+                            &lt;th onclick=&quot;sortTable('sbd')&quot; style=&quot;cursor:pointer&quot; title=&quot;Sắp xếp theo SBD&quot;&gt;SBD &lt;span id=&quot;sort-sbd&quot;&gt;↕&lt;/span&gt;&lt;/th&gt;
+                            &lt;th onclick=&quot;sortTable('made')&quot; style=&quot;cursor:pointer&quot; title=&quot;Sắp xếp theo m&atilde; đề&quot;&gt;M&Atilde; ĐỀ &lt;span id=&quot;sort-made&quot;&gt;↕&lt;/span&gt;&lt;/th&gt;
+                            &lt;th onclick=&quot;sortTable('luot')&quot; style=&quot;cursor:pointer&quot; title=&quot;Sắp xếp theo lượt&quot;&gt;LƯỢT &lt;span id=&quot;sort-luot&quot;&gt;↕&lt;/span&gt;&lt;/th&gt;
+                            &lt;th onclick=&quot;sortTable('score')&quot; style=&quot;cursor:pointer&quot; title=&quot;Sắp xếp theo điểm&quot;&gt;ĐIỂM &lt;span id=&quot;sort-score&quot;&gt;↕&lt;/span&gt;&lt;/th&gt;
+                            &lt;th onclick=&quot;sortTable('time')&quot; style=&quot;cursor:pointer&quot; title=&quot;Sắp xếp theo thời gian&quot;&gt;THỜI GIAN &lt;span id=&quot;sort-time&quot;&gt;↕&lt;/span&gt;&lt;/th&gt;
+                            &lt;th&gt;X&Oacute;A&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;&lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+            &lt;div style=&quot;margin-top:20px; text-align:center; color:#6c757d; font-size:12px;&quot; id=&quot;emptyTableMsg&quot; class=&quot;hidden&quot;&gt;
+                Chưa c&oacute; dữ liệu thống k&ecirc;.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
 
-    <script>
-        const MASTER_KEY = "C3_SECRET_123";
+    &lt;script&gt;
+        const MASTER_KEY = &quot;C3_SECRET_123&quot;;
         let logs = JSON.parse(localStorage.getItem('kttx_v65_logs') || '[]');
         let timerId, timeLeft = 0;
         let base64Files = [];
-        const corrects = { 1:"A", 2:"C", 3:"D", 4:"B", 5:"A", 6:"C", 7:"A", 8:"C", 9:"B", 10:"D", 11:"C", 12:"B", 13:"Dung", 14:"Sai", 15:"Dung", 16:"Sai", 17:"6", 18:"10", 19:"12", 20:"15" };
-        const corrects2 = { 1:"B", 2:"A", 3:"D", 4:"C", 5:"B", 6:"D", 7:"B", 8:"A", 9:"C", 10:"A", 11:"D", 12:"C", 13:"Sai", 14:"Dung", 15:"Sai", 16:"Dung", 17:"1", 18:"2", 19:"3", 20:"4" };
+        const corrects = { 1:&quot;A&quot;, 2:&quot;C&quot;, 3:&quot;D&quot;, 4:&quot;B&quot;, 5:&quot;A&quot;, 6:&quot;C&quot;, 7:&quot;A&quot;, 8:&quot;C&quot;, 9:&quot;B&quot;, 10:&quot;D&quot;, 11:&quot;C&quot;, 12:&quot;B&quot;, 13:&quot;Dung&quot;, 14:&quot;Sai&quot;, 15:&quot;Dung&quot;, 16:&quot;Sai&quot;, 17:&quot;6&quot;, 18:&quot;10&quot;, 19:&quot;12&quot;, 20:&quot;15&quot; };
+        const corrects2 = { 1:&quot;B&quot;, 2:&quot;A&quot;, 3:&quot;D&quot;, 4:&quot;C&quot;, 5:&quot;B&quot;, 6:&quot;D&quot;, 7:&quot;B&quot;, 8:&quot;A&quot;, 9:&quot;C&quot;, 10:&quot;A&quot;, 11:&quot;D&quot;, 12:&quot;C&quot;, 13:&quot;Sai&quot;, 14:&quot;Dung&quot;, 15:&quot;Sai&quot;, 16:&quot;Dung&quot;, 17:&quot;1&quot;, 18:&quot;2&quot;, 19:&quot;3&quot;, 20:&quot;4&quot; };
         let currentSort = { column: '', asc: true };
 
-        window.onload = () => { loadConfigToUI(); renderQuiz(); renderTable(); };
+        window.onload = () =&gt; { loadConfigToUI(); renderQuiz(); renderTable(); };
 
         function sortTable(column) {
             if (currentSort.column === column) {
@@ -251,11 +251,11 @@
             }
             
             const cols = ['name', 'class', 'sbd', 'made', 'luot', 'score', 'time'];
-            cols.forEach(col => {
+            cols.forEach(col =&gt; {
                 const el = document.getElementById('sort-' + col);
                 if (el) {
                     if (col === currentSort.column) {
-                        el.innerText = currentSort.asc ? '↑' : '↓';
+                        el.innerText = currentSort.asc ? '&uarr;' : '&darr;';
                     } else {
                         el.innerText = '↕';
                     }
@@ -270,14 +270,14 @@
             if(saved) {
                 try {
                     const cfg = JSON.parse(saved);
-                    document.getElementById('cfgMaDe').value = cfg.maDe || "";
+                    document.getElementById('cfgMaDe').value = cfg.maDe || &quot;&quot;;
                     document.getElementById('cfgTime').value = cfg.time || 15;
                     document.getElementById('cfgMaxLuot').value = cfg.maxLuot || 1;
-                    document.getElementById('cfgLink1').value = cfg.link1 || "";
-                    document.getElementById('cfgLink2').value = cfg.link2 || "";
+                    document.getElementById('cfgLink1').value = cfg.link1 || &quot;&quot;;
+                    document.getElementById('cfgLink2').value = cfg.link2 || &quot;&quot;;
                     if(cfg.files) base64Files = cfg.files;
-                    if(base64Files.length > 0) {
-                        document.getElementById('fileUploadStatus').innerText = 'Đã tải ' + base64Files.length + ' ảnh.';
+                    if(base64Files.length &gt; 0) {
+                        document.getElementById('fileUploadStatus').innerText = 'Đ&atilde; tải ' + base64Files.length + ' ảnh.';
                     }
                 } catch(e){}
             }
@@ -286,19 +286,19 @@
         async function handleFileSelect(e) {
             const files = e.target.files;
             if(!files || files.length === 0) return;
-            document.getElementById('fileUploadStatus').innerText = 'Đang xử lý ' + files.length + ' ảnh...';
+            document.getElementById('fileUploadStatus').innerText = 'Đang xử l&yacute; ' + files.length + ' ảnh...';
             const newFiles = [];
-            for(let i=0; i<files.length; i++) {
+            for(let i=0; i&lt;files.length; i++) {
                 const b64 = await compressImage(files[i]);
                 if(b64) newFiles.push(b64);
             }
             base64Files = [...base64Files, ...newFiles];
-            document.getElementById('fileUploadStatus').innerText = 'Đã tải tổng cộng ' + base64Files.length + ' ảnh.';
+            document.getElementById('fileUploadStatus').innerText = 'Đ&atilde; tải tổng cộng ' + base64Files.length + ' ảnh.';
         }
 
         async function saveSystemConfig() {
             const btn = document.getElementById('btnSaveConfig');
-            btn.innerText = "ĐANG XỬ LÝ..."; btn.disabled = true;
+            btn.innerText = &quot;ĐANG XỬ L&Yacute;...&quot;; btn.disabled = true;
             try {
                 const newCfg = {
                     maDe: document.getElementById('cfgMaDe').value.trim(),
@@ -309,33 +309,33 @@
                     files: base64Files
                 };
                 localStorage.setItem('kttx_v65_config', JSON.stringify(newCfg));
-                alert("LƯU THÀNH CÔNG!");
-            } catch (e) { alert("Lỗi bộ nhớ, hãy chia nhỏ ảnh hoặc dùng link iFrame!"); }
-            finally { btn.innerText = "LƯU CẤU HÌNH MỚI"; btn.disabled = false; }
+                alert(&quot;LƯU TH&Agrave;NH C&Ocirc;NG!&quot;);
+            } catch (e) { alert(&quot;Lỗi bộ nhớ, h&atilde;y chia nhỏ ảnh hoặc d&ugrave;ng link iFrame!&quot;); }
+            finally { btn.innerText = &quot;LƯU CẤU H&Igrave;NH MỚI&quot;; btn.disabled = false; }
         }
 
         function clearConfigAndData() {
-            if(confirm("Xác nhận XÓA SẠCH cấu hình đề thi (link, ảnh tải lên, mã đề)? Việc này chuần bị cho kỳ thi mới.")) {
-                document.getElementById('cfgMaDe').value = "";
-                document.getElementById('cfgLink1').value = "";
-                document.getElementById('cfgLink2').value = "";
-                document.getElementById('cfgFiles').value = "";
-                document.getElementById('fileUploadStatus').innerText = "";
+            if(confirm(&quot;X&aacute;c nhận X&Oacute;A SẠCH cấu h&igrave;nh đề thi (link, ảnh tải l&ecirc;n, m&atilde; đề)? Việc n&agrave;y chuần bị cho kỳ thi mới.&quot;)) {
+                document.getElementById('cfgMaDe').value = &quot;&quot;;
+                document.getElementById('cfgLink1').value = &quot;&quot;;
+                document.getElementById('cfgLink2').value = &quot;&quot;;
+                document.getElementById('cfgFiles').value = &quot;&quot;;
+                document.getElementById('fileUploadStatus').innerText = &quot;&quot;;
                 base64Files = [];
                 localStorage.removeItem('kttx_v65_config');
-                alert("Đã làm sạch cấu hình.");
+                alert(&quot;Đ&atilde; l&agrave;m sạch cấu h&igrave;nh.&quot;);
             }
         }
 
         function compressImage(file) {
-            return new Promise((resolve) => {
+            return new Promise((resolve) =&gt; {
                 const reader = new FileReader(); reader.readAsDataURL(file);
-                reader.onload = (e) => {
+                reader.onload = (e) =&gt; {
                     const img = new Image(); img.src = e.target.result;
-                    img.onload = () => {
+                    img.onload = () =&gt; {
                         const canvas = document.createElement('canvas');
                         let w = img.width, h = img.height;
-                        if(w > 800) { h = (800/w)*h; w = 800; }
+                        if(w &gt; 800) { h = (800/w)*h; w = 800; }
                         canvas.width = w; canvas.height = h;
                         const ctx = canvas.getContext('2d'); ctx.drawImage(img,0,0,w,h);
                         resolve(canvas.toBase64 ? canvas.toBase64() : canvas.toDataURL('image/jpeg', 0.4));
@@ -345,96 +345,96 @@
         }
 
         function startExam() {
-            const currentCfg = JSON.parse(localStorage.getItem('kttx_v65_config') || '{"files":[]}');
+            const currentCfg = JSON.parse(localStorage.getItem('kttx_v65_config') || '{&quot;files&quot;:[]}');
             const inputMaDe = document.getElementById('stuMaDe').value.trim();
-            const validMaDeList = (currentCfg.maDe || "").split(',').map(item => item.trim()).filter(Boolean);
+            const validMaDeList = (currentCfg.maDe || &quot;&quot;).split(',').map(item =&gt; item.trim()).filter(Boolean);
 
-            if (validMaDeList.length > 0) {
-                const isValid = validMaDeList.some(m => m.toLowerCase() === inputMaDe.toLowerCase());
-                if (!isValid) return alert("Mã đề không tồn tại!");
+            if (validMaDeList.length &gt; 0) {
+                const isValid = validMaDeList.some(m =&gt; m.toLowerCase() === inputMaDe.toLowerCase());
+                if (!isValid) return alert(&quot;M&atilde; đề kh&ocirc;ng tồn tại!&quot;);
             }
             
             const name = document.getElementById('stuName').value.trim();
             const sbd = document.getElementById('stuSBD').value.trim();
-            if(!name || !sbd) return alert("Nhập Tên và SBD!");
+            if(!name || !sbd) return alert(&quot;Nhập T&ecirc;n v&agrave; SBD!&quot;);
 
-            const count = logs.filter(l => l.sbd === sbd && l.made.toLowerCase() === inputMaDe.toLowerCase()).length;
-            if(count >= currentCfg.maxLuot) return alert("Hết lượt làm bài!");
+            const count = logs.filter(l =&gt; l.sbd === sbd &amp;&amp; l.made.toLowerCase() === inputMaDe.toLowerCase()).length;
+            if(count &gt;= currentCfg.maxLuot) return alert(&quot;Hết lượt l&agrave;m b&agrave;i!&quot;);
 
             document.getElementById('hName').innerText = name;
             document.getElementById('hClass').innerText = document.getElementById('stuClass').value;
             document.getElementById('hSbd').innerText = sbd;
             document.getElementById('hMaDe').innerText = inputMaDe;
-            document.getElementById('hLuot').innerText = (count + 1) + "/" + currentCfg.maxLuot;
+            document.getElementById('hLuot').innerText = (count + 1) + &quot;/&quot; + currentCfg.maxLuot;
 
-            const v = document.getElementById('viewer'); v.innerHTML = "";
-            let linkToUse = "";
-            if (validMaDeList.length > 0) {
+            const v = document.getElementById('viewer'); v.innerHTML = &quot;&quot;;
+            let linkToUse = &quot;&quot;;
+            if (validMaDeList.length &gt; 0) {
                 if (inputMaDe.toLowerCase() === validMaDeList[0].toLowerCase()) {
                     linkToUse = currentCfg.link1;
-                } else if (validMaDeList.length > 1 && inputMaDe.toLowerCase() === validMaDeList[1].toLowerCase()) {
+                } else if (validMaDeList.length &gt; 1 &amp;&amp; inputMaDe.toLowerCase() === validMaDeList[1].toLowerCase()) {
                     linkToUse = currentCfg.link2;
                 }
             } else {
                 linkToUse = currentCfg.link1 || currentCfg.link2;
             }
 
-            if(currentCfg.files && currentCfg.files.length > 0) {
-                currentCfg.files.forEach(src => v.innerHTML += '<img src="' + src + '">');
+            if(currentCfg.files &amp;&amp; currentCfg.files.length &gt; 0) {
+                currentCfg.files.forEach(src =&gt; v.innerHTML += '&lt;img src=&quot;' + src + '&quot;&gt;');
             } else if(linkToUse) {
-                v.innerHTML = '<iframe src="' + linkToUse + '" width="100%" height="800px" style="border:none;"></iframe>';
+                v.innerHTML = '&lt;iframe src=&quot;' + linkToUse + '&quot; width=&quot;100%&quot; height=&quot;800px&quot; style=&quot;border:none;&quot;&gt;&lt;/iframe&gt;';
             } else {
-                v.innerHTML = '<div style="color:white; text-align:center; margin-top:20px;">Giáo viên chưa cấu hình đề thi cho mã đề này.</div>';
+                v.innerHTML = '&lt;div style=&quot;color:white; text-align:center; margin-top:20px;&quot;&gt;Gi&aacute;o vi&ecirc;n chưa cấu h&igrave;nh đề thi cho m&atilde; đề n&agrave;y.&lt;/div&gt;';
             }
 
             navTo(2);
-            document.querySelectorAll('#quizArea input').forEach(i => { i.disabled = false; if(i.type==='radio') i.checked=false; else i.value=''; });
-            for(let i=1;i<=20;i++) document.getElementById('tk'+i).innerText = '';
-            document.getElementById('scoreDisplay').innerText = "Điểm: --";
+            document.querySelectorAll('#quizArea input').forEach(i =&gt; { i.disabled = false; if(i.type==='radio') i.checked=false; else i.value=''; });
+            for(let i=1;i&lt;=20;i++) document.getElementById('tk'+i).innerText = '';
+            document.getElementById('scoreDisplay').innerText = &quot;Điểm: --&quot;;
             document.getElementById('btnSubmit').disabled = false;
             document.getElementById('adminTools').classList.add('hidden');
             document.getElementById('adminKeyInput').value = '';
 
             timeLeft = (currentCfg.time || 15) * 60;
             clearInterval(timerId);
-            timerId = setInterval(() => {
+            timerId = setInterval(() =&gt; {
                 timeLeft--;
                 let m = Math.floor(timeLeft/60), s = timeLeft%60;
-                document.getElementById('timer').innerText = (m < 10 ? '0'+m : m) + ':' + (s < 10 ? '0'+s : s);
-                if(timeLeft <= 0) { clearInterval(timerId); submitExam(true); }
+                document.getElementById('timer').innerText = (m &lt; 10 ? '0'+m : m) + ':' + (s &lt; 10 ? '0'+s : s);
+                if(timeLeft &lt;= 0) { clearInterval(timerId); submitExam(true); }
             }, 1000);
         }
 
         function renderQuiz() {
-            const area = document.getElementById('quizArea'); area.innerHTML = "";
-            for(let i=1; i<=20; i++) {
-                let h = '<div class="q-row"><span class="q-num">Câu ' + i + ':</span><div class="q-opts">';
-                if(i<=12) { ['A','B','C','D'].forEach(o => h += '<label><input type="radio" name="q' + i + '" value="' + o + '"> ' + o + '</label>'); }
-                else if(i<=16) { h += '<label><input type="radio" name="q' + i + '" value="Dung"> Đ</label><label><input type="radio" name="q' + i + '" value="Sai"> S</label>'; }
-                else { h += '<input type="text" id="ans' + i + '" class="input-ans-large">'; }
-                area.innerHTML += h + '</div><span id="tk' + i + '" style="margin-left:10px; font-weight:bold; font-size:12px;"></span></div>';
+            const area = document.getElementById('quizArea'); area.innerHTML = &quot;&quot;;
+            for(let i=1; i&lt;=20; i++) {
+                let h = '&lt;div class=&quot;q-row&quot;&gt;&lt;span class=&quot;q-num&quot;&gt;C&acirc;u ' + i + ':&lt;/span&gt;&lt;div class=&quot;q-opts&quot;&gt;';
+                if(i&lt;=12) { ['A','B','C','D'].forEach(o =&gt; h += '&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;q' + i + '&quot; value=&quot;' + o + '&quot;&gt; ' + o + '&lt;/label&gt;'); }
+                else if(i&lt;=16) { h += '&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;q' + i + '&quot; value=&quot;Dung&quot;&gt; Đ&lt;/label&gt;&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;q' + i + '&quot; value=&quot;Sai&quot;&gt; S&lt;/label&gt;'; }
+                else { h += '&lt;input type=&quot;text&quot; id=&quot;ans' + i + '&quot; class=&quot;input-ans-large&quot;&gt;'; }
+                area.innerHTML += h + '&lt;/div&gt;&lt;span id=&quot;tk' + i + '&quot; style=&quot;margin-left:10px; font-weight:bold; font-size:12px;&quot;&gt;&lt;/span&gt;&lt;/div&gt;';
             }
         }
 
         function submitExam(auto = false) {
-            if(!auto && !confirm("Nộp bài làm?")) return;
+            if(!auto &amp;&amp; !confirm(&quot;Nộp b&agrave;i l&agrave;m?&quot;)) return;
             clearInterval(timerId);
-            document.querySelectorAll('#quizArea input').forEach(i => i.disabled = true);
+            document.querySelectorAll('#quizArea input').forEach(i =&gt; i.disabled = true);
             
-            const currentCfg = JSON.parse(localStorage.getItem('kttx_v65_config') || '{"files":[]}');
-            const validMaDeList = (currentCfg.maDe || "").split(',').map(item => item.trim()).filter(Boolean);
+            const currentCfg = JSON.parse(localStorage.getItem('kttx_v65_config') || '{&quot;files&quot;:[]}');
+            const validMaDeList = (currentCfg.maDe || &quot;&quot;).split(',').map(item =&gt; item.trim()).filter(Boolean);
             const studentMaDe = document.getElementById('hMaDe').innerText.trim();
             let currentCorrects = corrects;
-            if (validMaDeList.length > 1 && studentMaDe.toLowerCase() === validMaDeList[1].toLowerCase()) {
+            if (validMaDeList.length &gt; 1 &amp;&amp; studentMaDe.toLowerCase() === validMaDeList[1].toLowerCase()) {
                 currentCorrects = corrects2;
             }
 
             let score = 0;
-            for(let i=1; i<=20; i++) {
-                let val = (i<=16) ? document.querySelector('input[name="q' + i + '"]:checked')?.value : document.getElementById('ans'+i).value;
+            for(let i=1; i&lt;=20; i++) {
+                let val = (i&lt;=16) ? document.querySelector('input[name=&quot;q' + i + '&quot;]:checked')?.value : document.getElementById('ans'+i).value;
                 if(val?.toUpperCase() === currentCorrects[i].toUpperCase()) score += 0.5;
             }
-            document.getElementById('scoreDisplay').innerText = "Điểm: " + score.toFixed(1) + "/10";
+            document.getElementById('scoreDisplay').innerText = &quot;Điểm: &quot; + score.toFixed(1) + &quot;/10&quot;;
             document.getElementById('btnSubmit').disabled = false;
             document.getElementById('adminTools').classList.remove('hidden');
             
@@ -444,24 +444,24 @@
         }
 
         function adminViewAnswers() {
-            if(document.getElementById('adminKeyInput').value !== MASTER_KEY) return alert("Mã sai!");
+            if(document.getElementById('adminKeyInput').value !== MASTER_KEY) return alert(&quot;M&atilde; sai!&quot;);
             
-            const currentCfg = JSON.parse(localStorage.getItem('kttx_v65_config') || '{"files":[]}');
-            const validMaDeList = (currentCfg.maDe || "").split(',').map(item => item.trim()).filter(Boolean);
+            const currentCfg = JSON.parse(localStorage.getItem('kttx_v65_config') || '{&quot;files&quot;:[]}');
+            const validMaDeList = (currentCfg.maDe || &quot;&quot;).split(',').map(item =&gt; item.trim()).filter(Boolean);
             const studentMaDe = document.getElementById('hMaDe').innerText.trim();
             let currentCorrects = corrects;
-            if (validMaDeList.length > 1 && studentMaDe.toLowerCase() === validMaDeList[1].toLowerCase()) {
+            if (validMaDeList.length &gt; 1 &amp;&amp; studentMaDe.toLowerCase() === validMaDeList[1].toLowerCase()) {
                 currentCorrects = corrects2;
             }
 
-            for(let i=1; i<=20; i++) {
+            for(let i=1; i&lt;=20; i++) {
                 const label = document.getElementById('tk'+i);
-                let userVal = (i<=16) ? document.querySelector('input[name="q' + i + '"]:checked')?.value : document.getElementById('ans'+i).value;
-                label.innerText = "ĐA: " + currentCorrects[i];
-                if(userVal && userVal.toUpperCase() === currentCorrects[i].toUpperCase()){
-                    label.className = "txt-correct";
+                let userVal = (i&lt;=16) ? document.querySelector('input[name=&quot;q' + i + '&quot;]:checked')?.value : document.getElementById('ans'+i).value;
+                label.innerText = &quot;ĐA: &quot; + currentCorrects[i];
+                if(userVal &amp;&amp; userVal.toUpperCase() === currentCorrects[i].toUpperCase()){
+                    label.className = &quot;txt-correct&quot;;
                 } else {
-                    label.className = "txt-wrong";
+                    label.className = &quot;txt-wrong&quot;;
                 }
             }
         }
@@ -470,7 +470,7 @@
             if(document.getElementById('sysCode').value === MASTER_KEY) {
                 document.getElementById('configPanel').classList.remove('hidden');
                 document.getElementById('unlockZone').classList.add('hidden');
-            } else alert("Mã bảo mật sai!");
+            } else alert(&quot;M&atilde; bảo mật sai!&quot;);
         }
 
         function exitAdmin() {
@@ -479,7 +479,7 @@
         }
         
         function adminNavToNextPage() {
-            if(document.getElementById('adminKeyInput').value !== MASTER_KEY) return alert("Mã bảo mật sai!");
+            if(document.getElementById('adminKeyInput').value !== MASTER_KEY) return alert(&quot;M&atilde; bảo mật sai!&quot;);
             navTo(3);
         }
 
@@ -489,27 +489,27 @@
             const filterMd = document.getElementById('filterMade').value;
 
             // Render select options dynamically
-            const classes = [...new Set(logs.map(l => l.class))].filter(Boolean);
-            const mades = [...new Set(logs.map(l => l.made))].filter(Boolean);
+            const classes = [...new Set(logs.map(l =&gt; l.class))].filter(Boolean);
+            const mades = [...new Set(logs.map(l =&gt; l.made))].filter(Boolean);
             
             const selCls = document.getElementById('filterClass');
-            if(selCls.options.length <= 1) {
-                classes.forEach(c => selCls.add(new Option(c, c)));
+            if(selCls.options.length &lt;= 1) {
+                classes.forEach(c =&gt; selCls.add(new Option(c, c)));
             }
             const selMd = document.getElementById('filterMade');
-            if(selMd.options.length <= 1) {
-                mades.forEach(c => selMd.add(new Option(c, c)));
+            if(selMd.options.length &lt;= 1) {
+                mades.forEach(c =&gt; selMd.add(new Option(c, c)));
             }
 
-            const filtered = logs.filter(l => {
+            const filtered = logs.filter(l =&gt; {
                 const ms = l.name.toLowerCase().includes(search) || l.sbd.toLowerCase().includes(search);
                 const mc = filterCls ? l.class === filterCls : true;
                 const mm = filterMd ? l.made === filterMd : true;
-                return ms && mc && mm;
+                return ms &amp;&amp; mc &amp;&amp; mm;
             });
 
             if (currentSort.column) {
-                filtered.sort((a, b) => {
+                filtered.sort((a, b) =&gt; {
                     let valA = currentSort.column === 'time' ? a.id : (a[currentSort.column] || '');
                     let valB = currentSort.column === 'time' ? b.id : (b[currentSort.column] || '');
                     
@@ -518,44 +518,44 @@
                         valB = parseFloat(valB) || 0;
                     }
 
-                    if (typeof valA === 'string' && typeof valB === 'string') {
+                    if (typeof valA === 'string' &amp;&amp; typeof valB === 'string') {
                         const cmp = valA.localeCompare(valB, 'vi', { numeric: true });
                         return currentSort.asc ? cmp : -cmp;
                     }
 
-                    if (valA < valB) return currentSort.asc ? -1 : 1;
-                    if (valA > valB) return currentSort.asc ? 1 : -1;
+                    if (valA &lt; valB) return currentSort.asc ? -1 : 1;
+                    if (valA &gt; valB) return currentSort.asc ? 1 : -1;
                     return 0;
                 });
             }
 
             const tbody = document.querySelector('#resultTable tbody');
-            tbody.innerHTML = filtered.map((l, idx) => 
-                '<tr>' +
-                    '<td>' + (idx+1) + '</td>' +
-                    '<td class="td-name">' + l.name + '</td>' +
-                    '<td>' + l.class + '</td>' +
-                    '<td>' + l.sbd + '</td>' +
-                    '<td>' + l.made + '</td>' +
-                    '<td>' + l.luot + '</td>' +
-                    '<td class="td-score">' + l.score + '</td>' +
-                    '<td style="font-size:12px;">' + l.time + '</td>' +
-                    '<td><button class="btn-delete-row" onclick="deleteLog(' + l.id + ')">✖</button></td>' +
-                '</tr>'
+            tbody.innerHTML = filtered.map((l, idx) =&gt; 
+                '&lt;tr&gt;' +
+                    '&lt;td&gt;' + (idx+1) + '&lt;/td&gt;' +
+                    '&lt;td class=&quot;td-name&quot;&gt;' + l.name + '&lt;/td&gt;' +
+                    '&lt;td&gt;' + l.class + '&lt;/td&gt;' +
+                    '&lt;td&gt;' + l.sbd + '&lt;/td&gt;' +
+                    '&lt;td&gt;' + l.made + '&lt;/td&gt;' +
+                    '&lt;td&gt;' + l.luot + '&lt;/td&gt;' +
+                    '&lt;td class=&quot;td-score&quot;&gt;' + l.score + '&lt;/td&gt;' +
+                    '&lt;td style=&quot;font-size:12px;&quot;&gt;' + l.time + '&lt;/td&gt;' +
+                    '&lt;td&gt;&lt;button class=&quot;btn-delete-row&quot; onclick=&quot;deleteLog(' + l.id + ')&quot;&gt;✖&lt;/button&gt;&lt;/td&gt;' +
+                '&lt;/tr&gt;'
             ).join('');
 
             // Update stats
             document.getElementById('statTotal').innerText = filtered.length;
             let avg = 0;
             let passed = 0;
-            if(filtered.length > 0) {
-                const totalScore = filtered.reduce((s, l) => s + parseFloat(l.score), 0);
+            if(filtered.length &gt; 0) {
+                const totalScore = filtered.reduce((s, l) =&gt; s + parseFloat(l.score), 0);
                 avg = (totalScore / filtered.length).toFixed(1);
-                passed = filtered.filter(l => parseFloat(l.score) >= 5).length;
+                passed = filtered.filter(l =&gt; parseFloat(l.score) &gt;= 5).length;
             }
             document.getElementById('statAvg').innerText = avg;
             document.getElementById('statPass').innerText = passed;
-            document.getElementById('statPercent').innerText = filtered.length > 0 ? Math.round((passed/filtered.length)*100) + '%' : '0%';
+            document.getElementById('statPercent').innerText = filtered.length &gt; 0 ? Math.round((passed/filtered.length)*100) + '%' : '0%';
 
             if(filtered.length === 0) {
                 document.getElementById('emptyTableMsg').classList.remove('hidden');
@@ -566,10 +566,10 @@
             }
         }
 
-        function deleteLog(id) { if(confirm("Xóa dòng này?")) { logs = logs.filter(l => l.id !== id); localStorage.setItem('kttx_v65_logs', JSON.stringify(logs)); renderTable(); } }
-        function exportExcel() { let blob = new Blob([document.getElementById("resultTable").outerHTML], { type: "application/vnd.ms-excel" }); let a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "KetQua_V65.xls"; a.click(); }
-        function navTo(n) { document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); document.getElementById('page' + n).classList.add('active'); if(n===3) renderTable(); }
-        function clearAllLogs() { if(confirm("Xóa sạch dữ liệu điểm?")) { logs=[]; localStorage.removeItem('kttx_v65_logs'); renderTable(); } }
-    </script>
-</body>
-</html>
+        function deleteLog(id) { if(confirm(&quot;X&oacute;a d&ograve;ng n&agrave;y?&quot;)) { logs = logs.filter(l =&gt; l.id !== id); localStorage.setItem('kttx_v65_logs', JSON.stringify(logs)); renderTable(); } }
+        function exportExcel() { let blob = new Blob([document.getElementById(&quot;resultTable&quot;).outerHTML], { type: &quot;application/vnd.ms-excel&quot; }); let a = document.createElement(&quot;a&quot;); a.href = URL.createObjectURL(blob); a.download = &quot;KetQua_V65.xls&quot;; a.click(); }
+        function navTo(n) { document.querySelectorAll('.page').forEach(p =&gt; p.classList.remove('active')); document.getElementById('page' + n).classList.add('active'); if(n===3) renderTable(); }
+        function clearAllLogs() { if(confirm(&quot;X&oacute;a sạch dữ liệu điểm?&quot;)) { logs=[]; localStorage.removeItem('kttx_v65_logs'); renderTable(); } }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
